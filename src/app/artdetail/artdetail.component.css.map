@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,UAAU;EACR,UAAU,EAAE,OAAO;;AACrB,MAAM;EACJ,SAAS,EAAE,KAAK;;AAClB,MAAM;EACJ,MAAM,EAAE,KAAK;EACb,SAAS,EAAE,KAAK",
+"sources": ["artdetail.component.sass"],
+"names": [],
+"file": "artdetail.component.css"
+}
