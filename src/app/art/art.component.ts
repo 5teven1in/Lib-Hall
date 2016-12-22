@@ -57,7 +57,6 @@ export class ArtComponent implements OnInit, DoCheck, OnDestroy {
       this.change();
       this.curyear = this.year;
     }
-    console.log(this.year);
   }
 
   ngOnDestroy() {

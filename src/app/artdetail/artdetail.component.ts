@@ -45,4 +45,11 @@ export class ArtdetailComponent implements OnInit, OnDestroy {
     return img === this.detail[1].Items[0];
   }
 
+  isShowMore(description: string) {
+    if (description.length > 20)
+      return true;
+    else
+      return false;
+  }
+
 }
