@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,WAAW;EACT,SAAS,EAAE,KAAK;;AAClB,UAAU;EACR,UAAU,EAAE,wBAAqB",
-"sources": ["art.component.sass"],
-"names": [],
-"file": "art.component.css"
-}
