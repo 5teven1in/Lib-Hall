@@ -4,7 +4,7 @@
       <div id="myCarousel" class="carousel slide col-sm-8 col-md-8 col-lg-8">
         <div class="carousel-inner">
           <div *ngFor="let img of detail[1].Items" class="item" [ngClass]="{active: isActive(img)}">
-            <img [src]="[img.ImgPath]" alt="{{ img.Title }}">
+            <img [src]="[img.ImgPath]" alt="{{ img.Title }}" class="fix-img">
             <div class="carousel-caption">{{ img.Title }}</div>
           </div>
         </div>
