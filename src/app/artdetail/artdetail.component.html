@@ -3,7 +3,7 @@
     <div class="carousel-inner">
       <div class="item text-center"
            *ngFor="let img of detail[1].Items" [ngClass]="{active: isActive(img)}">
-        <img [src]="[img.ImgPath]" alt="{{ img.Title }}">
+        <img [src]="[img.ImgPath]" alt="{{ img.Title }}" class="fix-img">
         <div class="carousel-caption"><h4>{{ img.Title }}&nbsp;</h4></div>
       </div>
     </div>
