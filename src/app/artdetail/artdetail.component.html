@@ -1,4 +1,10 @@
-<div class="container row" *ngIf="detail[0] == 200">
+<div class="container row detail" *ngIf="detail[0] == 200">
+  <ol class="breadcrumb">
+    <li><a [routerLink]="['/']">首頁</a></li>
+    <li><a href="#">2015</a></li>
+    <li class="active">{{detail[1].Title}}</li>
+  </ol>
+
   <div id="myCarousel" class="carousel slide col-sm-8 col-md-8 col-lg-8">
     <div class="carousel-inner">
       <div class="item text-center"
