@@ -41,4 +41,8 @@ export class ArtdetailComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  isActive(img: string) {
+    return img === this.detail[1].Items[0];
+  }
+
 }
