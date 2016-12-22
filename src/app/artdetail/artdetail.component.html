@@ -1,47 +1,35 @@
-<div *ngIf="detail[0] == 200">
-  <div class="row" align="center">
-    <div class="col-md-8 col-md-offset-2">
-      <div id="myCarousel" class="carousel slide col-sm-8 col-md-8 col-lg-8">
-        <div class="carousel-inner">
-          <div *ngFor="let img of detail[1].Items" class="item" [ngClass]="{active: isActive(img)}">
-            <img [src]="[img.ImgPath]" alt="{{ img.Title }}" class="fix-img">
-            <div class="carousel-caption">{{ img.Title }}</div>
-          </div>
-        </div>
-        <a class="carousel-control left" href="#myCarousel"
-           data-slide="prev"></a>
-        <a class="carousel-control right" href="#myCarousel"
-           data-slide="next"></a>
-      </div>
-      <div class="thumbnail col-sm-4 col-md-4 col-lg-4">
-        <div class="caption">
-          <div align="center">
-            <h2>{{detail[1].Title}}</h2>
-            <h4>{{detail[1].People}}</h4>
-          </div>
-          <div>
-            <h3>{{detail[1].Begin}}~{{detail[1].End}}</h3>
-            <h3>{{detail[1].Place}}</h3>
-            <div *ngIf="isShowMore(detail[1].Description) == false">
-              <h3>{{detail[1].Description}}</h3>
-            </div>
-            <div *ngIf="isShowMore(detail[1].Description) == true">
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-                詳細說明
-              </button>
-              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <h3>{{detail[1].Description}}</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<div class="container row" *ngIf="detail[0] == 200">
+  <div id="myCarousel" class="carousel slide col-sm-8 col-md-8 col-lg-8">
+    <div class="carousel-inner">
+      <div class="item text-center"
+           *ngFor="let img of detail[1].Items" [ngClass]="{active: isActive(img)}">
+        <img [src]="[img.ImgPath]" alt="{{ img.Title }}" class="fix-img">
+        <div class="carousel-caption"><h4>{{ img.Title }}&nbsp;</h4></div>
       </div>
     </div>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+      <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+      <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  <div class="jumbotron col-sm-4 col-md-4 col-lg-4">
+    <h2 class="text-center">{{detail[1].Title}}
+      <br>
+      <small>{{detail[1].People}}</small>
+    </h2>
+    <p>
+      <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+      {{detail[1].Begin}}~{{detail[1].End}}
+    </p>
+    <p>
+      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+      {{detail[1].Place}}
+    </p><!-- ngIf: showCtrl.show.description -->
+    <p class="description">
+      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      {{detail[1].Description}}
+    </p><!-- end ngIf: showCtrl.show.description -->
   </div>
 </div>

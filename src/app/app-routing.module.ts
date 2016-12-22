@@ -6,7 +6,7 @@ import {ArtComponent} from "./art/art.component";
 const routes: Routes = [
   { path: '', component: ArtComponent },
   { path: ':year', component: ArtComponent },
-  { path: 'art/:id', component: ArtdetailComponent }
+  { path: ':year/:id', component: ArtdetailComponent }
 ];
 
 @NgModule({

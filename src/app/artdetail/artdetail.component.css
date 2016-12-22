@@ -1,0 +1,19 @@
+.thumbnail {
+  background: #e7e7e7; }
+
+.fixed {
+  max-width: 800px; }
+
+.slide {
+  max-width: 600px; }
+
+.jumbotron {
+  text-align: center; }
+
+img {
+  max-height: 80vh; }
+
+.description {
+  text-align: left; }
+
+/*# sourceMappingURL=artdetail.component.css.map */
