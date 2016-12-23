@@ -1,7 +1,7 @@
 <div class="container row detail" *ngIf="detail[0] == 200">
   <ol class="breadcrumb">
     <li><a [routerLink]="['/']">首頁</a></li>
-    <li><a href="#">2015</a></li>
+    <li><a [routerLink]="['/', detail[1].Year]">{{detail[1].Year}}</a></li>
     <li class="active">{{detail[1].Title}}</li>
   </ol>
 
