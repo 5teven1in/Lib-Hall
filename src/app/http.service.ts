@@ -11,6 +11,11 @@ export class HttpService {
       .map((response: Response) => response.json());
   }
 
+  getPage(page: string) {
+    return this.http.get('http://140.113.66.249:65534/getinfo/' + page)
+      .map((response: Response) => response.json());
+  }
+
   getDetail(serial: string) {
     return this.http.get('http://140.113.66.249:65534/getdetail/' + serial)
       .map((response: Response) => response.json());

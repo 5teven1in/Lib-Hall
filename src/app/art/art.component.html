@@ -1,4 +1,9 @@
-<div class="container" *ngIf="items[0] == 200">
+<div class="container"
+     *ngIf="items[0] == 200"
+     infinite-scroll
+     [infiniteScrollDistance]="scrollDistance"
+     [infiniteScrollThrottle]="throttle"
+     (scrolled)="onScrollDown()">
   <div *ngFor="let item of items[1]" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" align="center">
     <div class="thumbnail fixed-card">
       <div class="caption">

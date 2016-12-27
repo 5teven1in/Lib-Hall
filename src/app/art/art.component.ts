@@ -1,7 +1,8 @@
 import {Component, OnInit, DoCheck, OnDestroy, OnChanges} from '@angular/core';
 import {HttpService} from "../http.service";
-import {Router, ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'lib-art',
@@ -12,13 +13,14 @@ import {Subscription} from "rxjs";
 export class ArtComponent implements OnInit, DoCheck, OnDestroy {
 
   private subscriptiony: Subscription;
+  private subscriptionp: Subscription;
   private subscription: Subscription;
 
   constructor(private httpservice: HttpService, private activatedrouter: ActivatedRoute) { }
 
   autoload: boolean;
   curyear: string;
-  page = '1';
+  page = 1;
   year: string;
   items: any[] = [];
 
@@ -34,7 +36,7 @@ export class ArtComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   change() {
-    this.subscription = this.httpservice.getData(this.page, this.year).subscribe(
+    this.subscription = this.httpservice.getData(this.page.toString(), this.year).subscribe(
       (data) => {
         const myarr = [];
         for(let key in data){
@@ -62,6 +64,33 @@ export class ArtComponent implements OnInit, DoCheck, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.subscriptiony.unsubscribe();
+    this.subscriptionp.unsubscribe();
+  }
+
+  loadPage() {
+    this.subscriptionp = this.httpservice.getPage(this.page.toString()).subscribe(
+      (data) => {
+        const myarr = [];
+        for(let key in data){
+          myarr.push(data[key]);
+        }
+        this.tmp = myarr;
+      }
+    );
+  }
+
+  throttle = 300;
+  scrollDistance = 1;
+  tmp: any[] = [];
+  onScrollDown() {
+    if (this.autoload) {
+      this.page = this.page + 1;
+      this.loadPage();
+      if (this.tmp[0] == 200)
+        for(let key in this.tmp[1]){
+          this.items[1].push(this.tmp[1][key]);
+        }
+    }
   }
 
 }
