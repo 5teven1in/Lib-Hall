@@ -64,7 +64,8 @@ export class ArtComponent implements OnInit, DoCheck, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.subscriptiony.unsubscribe();
-    this.subscriptionp.unsubscribe();
+    if (this.autoload)
+      this.subscriptionp.unsubscribe();
   }
 
   loadPage() {
